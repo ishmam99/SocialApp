@@ -30,7 +30,7 @@
             <div class="d-flex justify-content-between align-items-baseline">
                 <div class="d-flex align-items-center pb-3">
                     <div class="h4" style="color:whitesmoke">{{$user->username}}</div>
-                <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
+                <follow-button user-id="{{$user->id}}" follows="{{$follows}}" id="follow"></follow-button>
                 
                 </div>
             </div> 
@@ -39,18 +39,19 @@
                
            
             @can('update', $user->profile)
-                <button class="btn btn-success"> <a href="/profile/{{$user->id}}/edit" style="color:white">Edit profile</a></button>
+                <button class="btn btn-success"> <a href="/profile/{{$user->id}}/edit" style="color:white;margin-bottom:20px">Edit profile</a></button>
             @endcan
        
                 <div class="d-flex"  id="show">
                     
-                    <div class="pr-5" style="color:whitesmoke"><strong>{{$user->posts->count()}}</strong> posts</div>
-                    <div class="pr-5" style="color:whitesmoke"><strong>{{$user->profile->followers->count()}}</strong> followers</div>
-                    <div class="pr-5" style="color:whitesmoke"><strong>{{$user->following->count()}}</strong> following</div>
+                    <div class="pr-5" style="color:whitesmoke;background-color:black"><strong>{{$user->posts->count()}}</strong> posts</div>
+                <div class="pr-5" style="color:whitesmoke;background-color:black"><strong>{{$user->profile->followers->count()}}</strong> followers</div>
+                    <div class="pr-5" style="color:whitesmoke;background-color:black"><strong>{{$user->following->count()}}</strong> following</div>
                 </div>
                 <div class="pt-4 font-weight-bold" style="color:whitesmoke">{{$user->profile->title}}</div>
                 <div>{{$user->profile->description}}</div>
                 <div><a href="#">{{$user->profile->url ??'not available'}}</a></div>
+                
             </div>
          </div>
         </div>
@@ -77,8 +78,6 @@
     
 </div>
 @endsection 
-
-
 
 
 

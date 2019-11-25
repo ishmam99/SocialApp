@@ -9,12 +9,12 @@ class Profile extends Model
     protected $guarded=[];
     public function profileImage()
     {
-       $imagePath=($this->image)? $this->image:'/profile/IFTKR6iloDWe7Znvzw7rz04gKB02OTgrDc4gyuCW.png';
+       $imagePath=($this->image)? $this->image:'default.png';
        return '/uploads/'.$imagePath;
     }
     public function cover()
     {
-       $imagePath=($this->cover)? $this->cover:'../images/covers/6.jpg';
+       $imagePath=($this->cover)? $this->cover:'../images/covers/default.jpg';
        return '/uploads/'.$imagePath;
     }
     public function user()

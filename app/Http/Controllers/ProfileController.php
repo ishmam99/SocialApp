@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 use Intervention\Image\Facades\Image as Image;
 class ProfileController extends Controller
 {
@@ -79,6 +80,7 @@ class ProfileController extends Controller
 
           return redirect("/profile/{$user->id}");
     }
+    
     
     
 }
