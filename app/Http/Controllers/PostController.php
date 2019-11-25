@@ -9,7 +9,7 @@ use App\Post;
 use App\User;
 use DB;
 use App\Profile;
-use Intervention\Image\Facades\Image as Image;
+use Image;
 class PostController extends Controller
 {
     
@@ -75,7 +75,7 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store()
+    public function store(Request $data)
     {
         $data= request()->validate([
           'caption'=>'required',
@@ -84,12 +84,23 @@ class PostController extends Controller
 
 
         
-        $imagePath= request('image')->store('uploads','public');
-        $image=Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);
-        $image->save();
+        // $imagePath= request('image')->store('uploads','public');
+        // $image=Image::make($imagePath);
+        $originalImage=request('image');
+        $name=$originalImage->getClientOriginalName();
+        $extension=$originalImage->getClientOriginalExtension();
+       
+        $name=time(); 
+     
+        $fullname=$name.'.'.$extension;
+        $thumbnailImage = Image::make($originalImage);
+        $originalPath = public_path().'/uploads/';
+       
+        $thumbnailImage->save($originalPath.$fullname);
+        $thumbnailImage->resize(1200,1200);
         auth()->user()->posts()->create([
           'caption'=> $data['caption'],
-          'image'=> $imagePath
+          'image'=> $fullname
           ]);
 
           return redirect('/profile/'.auth()->user()->id);

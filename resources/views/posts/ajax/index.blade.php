@@ -39,8 +39,9 @@
         <div class="post-content">
               @foreach ($posts as $post)
            
-              <img src="/storage/{{$post->image}}" alt="post-image" class="img-responsive post-image" />
-              <div class="post-container">
+              <a href="/p/{{$post->id}}">
+                <img src="/uploads/{{$post->image}}" alt="post-image" class="img-responsive post-image" />
+              </a> <div class="post-container">
                 <img src="{{$post->user->profile->profileImage()}}" alt="user" class="profile-photo-md pull-left" />
                 <div class="post-detail">
                   <div class="user-info">

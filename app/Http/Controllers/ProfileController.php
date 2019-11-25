@@ -38,22 +38,41 @@ class ProfileController extends Controller
            
            
         ]);
+      ///fsdkfsl
+     
+        ///fsdfd
   
           auth()->user()->profile->update($data);
           if (request('image')){
 
-            $imagePath= request('image')->store('profile','public');
-            $image=Image::make(public_path("storage/{$imagePath}"))->fit(1000,1000);
-            $image->save();
-             auth()->user()->profile->update(['image'=>$imagePath]);
+          
+            $originalImage=request('image');
+            $name=$originalImage->getClientOriginalName();
+            $extension=$originalImage->getClientOriginalExtension();
+           
+            $name=time(); 
+         
+            $fullname=$name.'.'.$extension;
+            $thumbnailImage = Image::make($originalImage);
+            $originalPath = public_path().'/uploads/';
+            $image=Image::make($originalImage)->fit(1000,1000);
+            $image->save($originalPath.$fullname);
+             auth()->user()->profile->update(['image'=>$fullname]);
           } 
           auth()->user()->profile->update($data);
           if (request('image_cover')){
 
-            $imagePath= request('image_cover')->store('profile','public');
-            $image=Image::make(public_path("storage/{$imagePath}"))->fit(1030,430);
-            $image->save();
-             auth()->user()->profile->update(['cover'=>$imagePath]);
+            $originalImage= request('image_cover');
+            $name=$originalImage->getClientOriginalName();
+            $extension=$originalImage->getClientOriginalExtension();
+           
+            $name=time(); 
+         
+            $fullname=$name.'.'.$extension;
+            $originalPath = public_path().'/uploads/';
+            $image=Image::make($originalImage)->fit(1030,430);
+            $image->save($originalPath.$fullname);
+             auth()->user()->profile->update(['cover'=>$fullname]);
           } 
          
          

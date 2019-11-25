@@ -13,7 +13,7 @@ height: 3.2rem; }
 height: 3rem; }
 #img-upload{
     width: 100%;
-}
+} 
 </style>
 
 <div class="container">
