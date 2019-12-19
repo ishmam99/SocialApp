@@ -27,3 +27,4 @@ Route::get('/follower','PostController@follower')->name('follower');
 Route::get('/p/create','PostController@create');
 Route::post('/p','PostController@store');
 Route::get('/p/{post}','PostController@show'); 
+Route::post('/like','PostController@liked')->name('like');

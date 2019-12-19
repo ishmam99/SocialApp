@@ -1,4 +1,4 @@
-
+{{-- 
 @extends('layouts.app')
 <style>
         
@@ -40,7 +40,7 @@
 
  --}}
 
-
+{{-- 
 
 <div class="container">
     <div class="row justify-content-center"> 
@@ -105,3 +105,157 @@
     </div>
 </div>
 @endsection
+ --}}
+
+ 
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+	
+	<title>News Feed | Check what your friends are doing</title>
+  @include('includes.head')
+  <body>
+
+    <!-- Header
+    ================================================= -->
+   
+		<header id="header">
+            <nav class="navbar navbar-default navbar-fixed-top menu">
+              <div class="container">
+      
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="/"><img src="images/logo.png" alt="logo" /></a>
+                </div>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container -->
+            </nav>
+          </header>
+    <!--Header End-->
+
+    <div id="page-contents">
+    	<div class="container">
+    		<div class="row">
+
+          <!-- Newsfeed Common Side Bar Left
+          ================================================= -->
+    			
+    			<div class="col-md-7">
+
+           
+
+
+
+
+
+
+<div id="lp-register">
+    <div class="container wrapper">
+    <div class="row">
+        <div class="col-sm-5">
+        <div class="intro-texts">
+            <h1 class="text-white">Make Cool Friends !!!</h1>
+            <p>Friend Finder is a social network template that can be used to connect people. The template offers Landing pages, News Feed, Image/Video Feed, Chat Box, Timeline and lot more. <br /> <br />Why are you waiting for? Buy it now.</p>
+          <button class="btn btn-primary">Learn More</button>
+        </div>
+      </div>
+        <div class="col-sm-6 col-sm-offset-1">
+        <div class="reg-form-container"> 
+        
+          <!-- Register/Login Tabs-->
+          <div class="reg-options">
+            <ul class="nav nav-tabs">
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
+              
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+              
+           
+            </ul><!--Tabs End-->
+          </div>
+         
+         
+            <!--Login-->
+            <div class="tab-pane" id="login">
+              <h3>Login</h3>
+              <p class="text-muted">Log into your account</p>
+              
+              <!--Login Form-->
+              <form method="POST" action="{{ route('login') }}" name="Login_form" id='Login_form'>
+                @csrf
+             
+                 <div class="row">
+                  <div class="form-group col-xs-12">
+                    <input id="my-email" type="email" class="form-control input-group-lg  @error('email') is-invalid @enderror" placeholder="Your Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <label for="my-email" class="sr-only">Email Address</label>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <input id="my-password" type="password" name="password"  required value="" placeholder="Password"class="form-control input-group-lg @error('password') is-invalid @enderror" autocomplete="current-password">     
+                    <label for="my-password" class="sr-only">Password</label>
+                    @error('password')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                  </div>
+                </div> 
+                <button class="btn btn-primary">Login Now</button>
+              </form><!--Login Form Ends--> 
+            
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-6">
+      
+        <!--Social Icons-->
+        <ul class="list-inline social-icons">
+          <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
+          <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+          <li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>
+          <li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
+          <li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--preloader-->
+<div id="spinner-wrapper">
+  <div class="spinner"></div>
+</div>
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&amp;callback=initMap"></script>
+    <script src="{{ asset('js/jquery-3.1.1.min.js')}}"></script>
+    <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('js/jquery.appear.min.js')}}"></script>
+    <script src="{{ asset('js/jquery.incremental-counter.js')}}"></script>
+    <script src="{{ asset('js/script.js')}}"></script>
+</body>
+

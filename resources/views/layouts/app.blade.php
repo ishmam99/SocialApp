@@ -136,6 +136,7 @@
                                   
                                    @enderror
                            </div>
+                           <img src="" id="profile-img-tag" width="200px" />
                            <div class="row pt-4"><button class="btn btn-primary">Add New Post</button> </div>
                            </div>
                        </form>
@@ -150,6 +151,37 @@
         </div>
       </div>
       
+    
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script type="text/javascript">
+
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+
+            
+
+            reader.onload = function (e) {
+
+                $('#profile-img-tag').attr('src', e.target.result);
+
+            }
+
+            reader.readAsDataURL(input.files[0]);
+
+        }
+
+    }
+
+    $("#image").change(function(){
+
+        readURL(this);
+
+    });
+
+</script>
 
 </body>
 </html>

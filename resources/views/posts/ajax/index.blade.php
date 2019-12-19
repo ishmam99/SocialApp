@@ -49,7 +49,8 @@
                     <p class="text-muted">Published a photo about 3 mins ago</p>
                   </div>
                   <div class="reaction">
-                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 13</a>
+                    <div class="like">
+                    <a class="btn text-green"><i class="icon ion-thumbsup"></i>{{Auth::user()->likes()->where('post_id',$post->id)->first()?Auth::user()->likes()->where('post_id',$post->id)->first()->like==1? 'You and ':'Like'}} </a></div>
                     <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
                   </div>
                   <div class="line-divider"></div>
@@ -73,4 +74,7 @@
               </div>
                @endforeach
             </div>
-           
+          <script src="{{asset('js/like.js')}}"></script>
+          <script>
+          var token = '{{Session::token()}}';
+          var urlLike = '{{route('like')}}';</script>

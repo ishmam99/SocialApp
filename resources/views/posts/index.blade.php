@@ -166,9 +166,11 @@
                     <p class="text-muted">Published a photo about 3 mins ago</p>
                   </div>
                   <div class="reaction">
-                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 13</a>
-                    <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
-                  </div>
+                      <div class="like">
+                      <a class="btn text-green"><i class="icon ion-thumbsup"></i>{{Auth::user()->likes()->where('post_id',$post->id)->first()?Auth::user()->likes()->where('post_id',$post->id)->first()->like == 1 ? 'You and ':'Like':'Like'}} </a></div>
+                      
+                      
+                    </div>
                   <div class="line-divider"></div>
                   <div class="post-text">
                     <p>{{$post->caption}} <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
@@ -219,6 +221,10 @@
     <script src="{{ asset('js/jquery.sticky-kit.min.js')}}"></script>
     <script src="{{ asset('js/jquery.scrollbar.min.js')}}"></script>
     <script src="{{ asset('js/script.js')}}"></script>
+    <script src="{{asset('js/like.js')}}"></script>
+    
+
+    
     <script>
 
         $(document).ready(function() {
@@ -264,7 +270,11 @@
         })
         
         </script>
+        <script>
+        var token = '{{Session::token()}}';
+        var urlLike = '{{route('like')}}';
+        </script>
   </body>
 
-<!-- Mirrored from mythemestore.com/friend-finder/newsfeed.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Nov 2019 04:40:37 GMT -->
+
 </html>

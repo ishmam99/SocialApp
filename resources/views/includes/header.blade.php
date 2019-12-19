@@ -22,6 +22,7 @@
                 <a href="/" aria-haspopup="true" aria-expanded="false">Newsfeed </a>
                   
               </li>
+           
               <li class="dropdown">
                 <a href="/profile/{{Auth::user()->profile->id}}"  aria-haspopup="true" aria-expanded="false">Timeline </a>
                 
@@ -32,7 +33,7 @@
                                document.getElementById('logout-form').submit();">
                  {{ __('Logout') }}
              </a>
-            
+           
 
              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                  @csrf

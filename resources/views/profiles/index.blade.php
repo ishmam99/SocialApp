@@ -62,7 +62,6 @@
             @can('update', $user->profile)
            {{-- <a href="/p/create" >Add new post</a> --}}
         
-   @include('welcome')
           
       @endcan
        </div>
