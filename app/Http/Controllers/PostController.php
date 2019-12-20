@@ -19,10 +19,11 @@ class PostController extends Controller
     }
 
     protected $posts_per_page = 3;
+    protected $people_per_page = 10;
     public function index(Request $request)
     {
         $users=auth()->user()->following()->pluck('profiles.user_id');
-        $people=Profile::whereNotIn('id',$users)->with('user')->get();
+        $people=Profile::whereNotIn('id',$users)->with('user')->latest()->paginate(10);
         $friends=Profile::whereIn('id',$users)->with('user')->get();
         $posts=Post::whereIn('user_id',$users)->with('user')->latest()->paginate($this->posts_per_page);
         if($request->ajax()) {
