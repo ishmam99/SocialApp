@@ -14,7 +14,7 @@ class Profile extends Model
     }
     public function cover()
     {
-       $imagePath=($this->cover)? $this->cover:'../images/covers/default.jpg';
+       $imagePath=($this->cover)? $this->cover:'../images/covers/default.png';
        return '/uploads/'.$imagePath;
     }
     public function user()

@@ -23,6 +23,7 @@
 
        <div class="row">
             <label for="image" class="col-md-4 col-form-label">Cover Photo</label>
+            <img src="{{$user->profile->cover()}}" alt="">
             <input type="file" class="form-control-file" id="image" name="image_cover"  >
             @error('image_cover')image
                    
@@ -47,17 +48,24 @@
 
        <div class="row">
             <label for="image" class="col-md-4 col-form-label">Profile Image</label>
-            <input type="file" class="form-control-file" id="image" name="image"  >
+            <div>
+            <img src="{{$user->profile->profileImage()}}" style="width:200px;height:200px;" ></div>
+           
+            <input type="file" class="form-control-file" id="image-pro" name="image"  >
             @error('image')image
                    
                         <strong>{{ $message }}</strong>
                
                 @enderror
         </div>
-       
+        <img src="" id="profile-img-tag" width="200px" />
        <div class="row pt-4"><button class="btn btn-primary">Save Profile</button> </div>
        </div>
    </form>
+  
     
 </div>
+
+
+
 @endsection

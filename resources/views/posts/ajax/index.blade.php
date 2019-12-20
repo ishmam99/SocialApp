@@ -46,30 +46,17 @@
                 <div class="post-detail">
                   <div class="user-info">
                     <h5><a href="/profile/{{$post->user->id}}" class="profile-link">{{$post->user->username}}</a> <span class="following">following</span></h5>
-                    <p class="text-muted">Published a photo about 3 mins ago</p>
+                  <p class="text-muted">Published a photo {{$post->created_at}}</p>
                   </div>
-                  <div class="reaction">
-                    <div class="like">
-                    <a class="btn text-green"><i class="icon ion-thumbsup"></i>{{Auth::user()->likes()->where('post_id',$post->id)->first()?Auth::user()->likes()->where('post_id',$post->id)->first()->like==1? 'You and ':'Like'}} </a></div>
-                    <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
-                  </div>
+                  
                   <div class="line-divider"></div>
                   <div class="post-text">
                     <p>{{$post->caption}} <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
                   </div>
                   <div class="line-divider"></div>
-                  <div class="post-comment">
-                    <img src="images/users/user-11.jpg" alt="" class="profile-photo-sm" />
-                    <p><a href="timeline.html" class="profile-link">Diana </a><i class="em em-laughing"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
-                  </div>
-                  <div class="post-comment">
-                    <img src="images/users/user-4.jpg" alt="" class="profile-photo-sm" />
-                    <p><a href="timeline.html" class="profile-link">John</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
-                  </div>
-                  <div class="post-comment">
-                    <img src="images/users/user-1.jpg" alt="" class="profile-photo-sm" />
-                    <input type="text" class="form-control" placeholder="Post a comment">
-                  </div>
+                  
+                  
+                  
                 </div>
               </div>
                @endforeach

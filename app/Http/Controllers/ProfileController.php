@@ -16,6 +16,11 @@ class ProfileController extends Controller
         return view('profiles.index', compact('user','follows'));
        
     }
+    public function image(\App\User $user)
+    {
+        return view('profiles.image', compact('user'));
+       
+    }
     public function indextest(\App\User $user)
     {
         $follows=(auth()->user()) ? auth()->user()->following->contains($user->id) : false;

@@ -9,7 +9,7 @@
           
           <li><i class="icon ion-ios-people-outline"></i><div><a href="/friends">Friends</a></div></li>
           <li><i class="icon ion-chatboxes"></i><div><a href="newsfeed-messages.html">Messages</a></div></li>
-          <li><i class="icon ion-images"></i><div><a href="newsfeed-images.html">Images</a></div></li>
+          <li><i class="icon ion-images"></i><div><a href="profile/image/{{Auth::user()->profile->id}}">Images</a></div></li>
           <li><i class="icon ion-ios-videocam"></i><div><a href="newsfeed-videos.html">Videos</a></div></li>
         </ul><!--news-feed links ends-->
         <div id="chat-block">

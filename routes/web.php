@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/profile/{user}/edit','ProfileController@edit')->name('profile.edit');
 Route::patch('/profile/{user}','ProfileController@update')->name('profile.update');
 Route::get('/profile/{user}','ProfileController@index')->name('profile.show');
+Route::get('/profile/image/{user}','ProfileController@image')->name('profile.image');
 Route::get('/profiletest/{user}','ProfileController@indextest')->name('profiletest.show');
 Route::get('/','PostController@index');
 Route::get('/test','PostController@test');
